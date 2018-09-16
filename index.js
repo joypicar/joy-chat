@@ -1,7 +1,7 @@
 const express = require('express');
     app = express();
-    http = require('http').Server(app);
-    io = require('socket.io')(http);
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server),
     nickNames = [];
 
 app.use(express.static('public'));
@@ -35,6 +35,6 @@ io.on('connection', function(socket){
 //     console.log('listening on *:5000');
 // });
 
-http.listen(process.env.PORT || 5000, function(){
+server.listen(process.env.PORT || 5000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
