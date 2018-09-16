@@ -1,0 +1,83 @@
+/** Style for Joy Chat **/
+
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Pacifico', cursive, sans-serif;
+    color: #5170c2;
+}
+
+p, small {
+    color: #637195;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.card {
+    border-color: #90adfb;
+}
+
+#contentWrap {
+    display: none;
+}
+
+.chat-area {
+    height: 75vh;
+    overflow-y: auto;    
+}
+
+ul#messages{
+    padding: 0;
+}
+
+ul#messages li {
+    padding: 12px 24px;
+    margin-bottom: 16px;
+    list-style: none;
+    background: #ccc;
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    background: #525252;
+    background: -webkit-linear-gradient(to bottom, #90adfb, #89cefb);
+    background: linear-gradient(to bottom, #90adfb, #89cefb);
+    color: #fff;
+    width: auto;
+    display: inline-block;
+}
+
+.btn-outline-secondary {
+    color: #90adfb;
+    background-color: transparent;
+    background-image: none;
+    border-color: #90adfb;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #90adfb;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #90adfb;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #90adfb;
+    border-color: #90adfb;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
