@@ -2,7 +2,7 @@ const express = require('express');
     app = express();
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
-    nickNames = [];
+    users = {};
 
 app.use(express.static('public'));
 
@@ -11,24 +11,32 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    socket.on('new user', function(data, callback){
-        if (nickNames.indexOf(data) != -1){
+    socket.on('new user', function(data, callback){  
+        if (data in users){
             callback(false);
-        } else {
-            callback(true);
+        } else {            
             socket.nickName = data;
-            nickNames.push(socket.nickName);            
+            users[socket.nickName] = socket;
+            callback(true);
+            updateNickNames();     
         }
     });
 
     function updateNickNames() {
-        io.sockets.emit('usernames', nickNames);
+        io.sockets.emit('usernames', Object.keys(users));
     }
 
     socket.on('chat message', function(data){
         console.log(socket.nickName + ' : ' + data);
         io.sockets.emit('chat message', {msg: data, nick: socket.nickName});
     });
+
+    socket.on('disconnect', function(){
+        if(!socket.nickName) return;
+        delete users[socket.nickName];
+        updateNickNames();
+    });
+
 });
 
 // http.listen(port, function(){

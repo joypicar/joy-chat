@@ -23,7 +23,7 @@ p, small {
     border-color: #90adfb;
 }
 
-#contentWrap {
+#contentWrap, #usersWrap {
     display: none;
 }
 
@@ -32,7 +32,7 @@ p, small {
     overflow-y: auto;    
 }
 
-ul#messages{
+ul {
     padding: 0;
 }
 
@@ -51,13 +51,6 @@ ul#messages li {
     display: inline-block;
 }
 
-.btn-outline-secondary {
-    color: #90adfb;
-    background-color: transparent;
-    background-image: none;
-    border-color: #90adfb;
-}
-
 .form-control {
     display: block;
     width: 100%;
@@ -71,6 +64,25 @@ ul#messages li {
     border: 1px solid #90adfb;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #90adfb;
+    background-image: none;
+    border-color: #90adfb;
+}
+
+.btn-secondary:hover {
+    background-color: #90adfb;
+    border-color: #90adfb;
+}
+
+.btn-outline-secondary {
+    color: #90adfb;
+    background-color: transparent;
+    background-image: none;
+    border-color: #90adfb;
 }
 
 .btn-outline-secondary:hover {

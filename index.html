@@ -26,14 +26,14 @@
                     <div class="form-group">
                         <label><p class="mb-0">Enter your nickname</p></label>
                         <input class="form-control mb-3" id="nickName" required>
-                        <button class="btn btn-outline-secondary px-3 pull-right" type="submit">Send</button>
+                        <button class="btn btn-secondary px-4 pull-right" type="submit">Send</button>
                     </div>
                 </form>
             </div>
         </div>
     
         <!-- Chat Wrapper -->
-        <div id="contentWrap">
+        <div id="contentWrap" class="col-sm-9 pull-left">
     
             <div class="chat-area card p-4 mb-3">
                 <ul id="messages"></ul>                       
@@ -52,6 +52,11 @@
            
         </div>  
 
+        <!-- Online Users -->
+        <div id="usersWrap" class="col-sm-3 pull-left">
+            <p>Online Users:</p>
+            <ul id="users"></ul>
+        </div>
         
     </div>  
 
@@ -64,30 +69,40 @@
                     nickForm = $('#setNick');
                     nickName = $('#nickName')
                     nickError = $('#nickError');
-                    sendMsg = $('#sendMsg');
+                    sendMsg = $('#sendMsg');   
 
             nickForm.submit(function(e){
                 e.preventDefault();
                 socket.emit('new user', nickName.val(), function(data){
                     if (data){  
                         $('#nickWrap').hide();
-                        $('#contentWrap').show();
+                        $('#contentWrap').show();  
+                        $('#usersWrap').show();
                     } else {
                         $('#nickError p').html('That username is already taken');
                     }
-                });
-                nickName.val('');
-            })
+                });                
+                //nickName.val('');                
+            });
             
-            sendMsg.submit(function(e){
+            sendMsg.submit(function(e, data){
                 e.preventDefault();
                 socket.emit('chat message', $('#m').val());
                 $('#m').val('');
-                return false;
+                return false;                
             }); 
+
             socket.on('chat message', function(data){
-                $('#messages').append($('<small>').text(data.nick + ' says :'),('<br>'), $('<li class="mt-1">').text(data.msg),('<br>'));
+                $('#messages').append($('<small>').text(data.nick + ' says :'),('<br>'), $('<li class="mt-1">').text(data.msg),('<br>'));             
             });
+
+            socket.on('usernames', function(data){
+                let html = '';
+                for (let i = 0; i < data.length; i++) {
+                    html += '<p class="mb-1">' + data[i] + '</p>'
+                }
+                $('#users').html(html); 
+            })
         });
     </script>
 
