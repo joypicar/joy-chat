@@ -1,0 +1,6 @@
+{
+    "name": "Joy Chat",
+    "description": "A simple group chat made using socket.io",
+    "repository": "https://git.heroku.com/joy-chat.git"
+}
+
