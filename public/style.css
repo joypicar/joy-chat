@@ -1,14 +1,18 @@
 /** Style for Joy Chat **/
 
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+
+body {
+    background: #252525;
+}
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Pacifico', cursive, sans-serif;
-    color: #5170c2;
+    font-family: 'Rock Salt', cursive;
+    color: #33b1ec;
 }
 
 p, small {
-    color: #637195;
+    color: #a7aec0;
 }
 
 .pull-left {
@@ -20,7 +24,8 @@ p, small {
 }
 
 .card {
-    border-color: #90adfb;
+    border-color: #4c4c4c;
+    background: #404040;
 }
 
 #contentWrap, #usersWrap {
@@ -58,36 +63,41 @@ ul#messages li {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: #90adfb;
-    background-color: #fff;
+    color: #ccc;
+    background-color: transparent;
     background-clip: padding-box;
-    border: 1px solid #90adfb;
+    border: 1px solid #33b1ec;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.form-control:focus {
+    color: white;
+    background-color: transparent;
+}
+
 .btn-secondary {
     color: #fff;
-    background-color: #90adfb;
+    background-color: #33b1ec;
     background-image: none;
-    border-color: #90adfb;
+    border-color: #33b1ec;
 }
 
 .btn-secondary:hover {
-    background-color: #90adfb;
-    border-color: #90adfb;
+    background-color: #1fa4e2;
+    border-color: #1fa4e2;
 }
 
 .btn-outline-secondary {
-    color: #90adfb;
+    color: #33b1ec;
     background-color: transparent;
     background-image: none;
-    border-color: #90adfb;
+    border-color: #33b1ec;
 }
 
 .btn-outline-secondary:hover {
-    background-color: #90adfb;
-    border-color: #90adfb;
+    background-color: #33b1ec;
+    border-color: #33b1ec;
 }
 
 .form-control:focus {
