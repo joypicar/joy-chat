@@ -103,3 +103,10 @@ ul#messages li {
 .form-control:focus {
     box-shadow: none;
 }
+
+.self {
+    border-radius: 16px;
+    border-bottom-right-radius: 4px;
+    float: right;
+    background: linear-gradient(to bottom, #fb90ed, #fb89b0);
+}
