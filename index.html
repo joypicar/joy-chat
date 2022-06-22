@@ -97,9 +97,9 @@
             socket.on('chat message', function(data) {
                 const self = sessionStorage.getItem('user') === data.nick;
                 if (self) {
-                    $('#messages').append($('<small style="float: right">').text('You says :'),('<br>'), $('<li class="mt-1 self">').text(data.msg),('<br>'));
+                    $('#messages').append($('<small style="float: right">').text('You:'),('<br>'), $('<li class="mt-1 self">').text(data.msg),('<br>'));
                 } else {
-                    $('#messages').append($('<small>').text(data.nick + ' says :'),('<br>'), $('<li class="mt-1">').text(data.msg),('<br>')); 
+                    $('#messages').append($('<small>').text(data.nick + ':'),('<br>'), $('<li class="mt-1">').text(data.msg),('<br>')); 
                 }                           
             });
 
