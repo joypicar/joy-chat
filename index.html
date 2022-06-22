@@ -73,8 +73,10 @@
 
             nickForm.submit(function(e){
                 e.preventDefault();
-                socket.emit('new user', nickName.val(), function(data){
-                    if (data){  
+                socket.emit('new user', nickName.val(), function(data) {
+                    // save user to sessionStorage
+                    sessionStorage.setItem('user',  nickName.val())
+                    if (data) {  
                         $('#nickWrap').hide();
                         $('#contentWrap').show();  
                         $('#usersWrap').show();
