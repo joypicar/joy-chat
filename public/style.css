@@ -110,3 +110,8 @@ ul#messages li {
     float: right;
     background: linear-gradient(to bottom, #fb90ed, #fb89b0) !important;
 }
+
+br {
+    display: block;
+    clear: both;
+}
