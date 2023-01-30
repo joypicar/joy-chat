@@ -72,9 +72,9 @@
                     sendMsg = $('#sendMsg');   
 
             nickForm.submit(function(e){
+                console.log('submit new user', e)
                 e.preventDefault();
-                socket.emit('new user', nickName.val(), function(data) {
-                    console.log('submit new user', nickName.val())
+                socket.emit('new user', nickName.val(), function(data) {                    
                     // save user to sessionStorage
                     sessionStorage.setItem('user',  nickName.val())
                     if (data) {  
