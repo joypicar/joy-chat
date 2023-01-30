@@ -74,6 +74,7 @@
             nickForm.submit(function(e){
                 e.preventDefault();
                 socket.emit('new user', nickName.val(), function(data) {
+                    console.log('submit new user', nickName.val())
                     // save user to sessionStorage
                     sessionStorage.setItem('user',  nickName.val())
                     if (data) {  
