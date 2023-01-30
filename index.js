@@ -4,7 +4,7 @@ const express = require('express');
     io = require('socket.io').listen(server),
     users = {};
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public/'));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
