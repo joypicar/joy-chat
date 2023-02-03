@@ -3,11 +3,13 @@
     "version": "0.0.1",
     "description": "my first socket.io app",
     "main": "index.js",
+    "author": "Joy Lab",
+    "private": true,
     "dependencies": {
         "express": "^4.15.2",
         "socket.io": "^2.1.1"
     },
-    "engines": {
-        "node": ">=16.0.0"
+    "scripts": {
+        "start": "node index.js"
     }
 }

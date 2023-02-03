@@ -4,11 +4,12 @@ const express = require('express');
     io = require('socket.io').listen(server),
     users = {};
 
-app.use(express.static(__dirname + '/public/'));
+    // Routing
+app.use(express.static('public'));
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', function(req, res){
+//     res.sendFile(__dirname + '/index.html');
+// });
 
 io.on('connection', function(socket){
     socket.on('new user', function(data, callback){  
